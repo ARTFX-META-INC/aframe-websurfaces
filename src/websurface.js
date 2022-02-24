@@ -9,6 +9,7 @@ export const component = AFRAME.registerComponent('websurface', {
     isInteractable: { default: true },
     frameSkips: { default: 1 },
     autoSceneStyling: { default: true },
+    frameid : { default: 'websurface' },
   },
 
   init: function () {
@@ -46,6 +47,7 @@ export const component = AFRAME.registerComponent('websurface', {
       const iframe = document.createElement('iframe');
       iframe.setAttribute('src', data.url);
       iframe.style.border = 'none';
+      iframe.id = data.frameid;
 
       const camera = el.sceneEl.camera;
       const context = new DOMContext(camera, el);
